@@ -1,5 +1,7 @@
 # API Testing dengan Postman
 
+Oleh: Roy ([GitHub](https://github.com/royjtk/restful-booker-testing-postman))
+
 Halo! Repo ini berisi dokumentasi dan laporan pengujian API menggunakan Postman yang saya kerjakan dalam mata kuliah Pengujian Perangkat Lunak. Di sini saya membahas pengalaman saya menguji RESTful Booker API serta pemahaman saya tentang API testing.
 
 ## Apa itu API Testing?
@@ -131,6 +133,14 @@ Penerapan automation testing dengan Postman memungkinkan saya menjalankan penguj
 ## Kesimpulan
 
 API testing merupakan komponen penting dalam pengembangan software modern. Dengan Postman, proses pengujian menjadi lebih mudah dan terotomatisasi. Memahami konsep dasar API, metode HTTP, dan teknik validasi respons sangat penting untuk memastikan aplikasi kita berkomunikasi dengan baik dan handal.
+
+## Kontak
+
+Jika Anda memiliki pertanyaan atau ingin berdiskusi tentang proyek ini, jangan ragu untuk menghubungi saya:
+
+- **Nama:** Roy
+- **GitHub:** [royjtk](https://github.com/royjtk)
+- **Repository:** [restful-booker-testing-postman](https://github.com/royjtk/restful-booker-testing-postman)
 
 ---
 
