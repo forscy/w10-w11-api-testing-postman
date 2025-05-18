@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restful Booker API Testing Reports</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --accent-color: #4cc9f0;
+      --success-color: #4ade80;
+      --warning-color: #fcd34d;
+      --danger-color: #f87171;
+      --light-bg: #f9fafb;
+      --dark-bg: #1f2937;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      padding: 3rem 0;
+      border-radius: 0 0 1.5rem 1.5rem;
+    }
+    
+    .navbar {
+      background: transparent !important;
+    }
+    
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    
+    .card {
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 500;
+      padding: 1rem;
+    }
+    
+    .card-footer {
+      background-color: white;
+      border-top: none;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      border-radius: 0.5rem;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .feature-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-description {
+      color: #6b7280;
+    }
+    
+    .footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    
+    .report-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .report-card .card-body {
+      flex: 1 1 auto;
+    }
+    
+    .method-badge {
+      font-size: 0.75rem;
+      padding: 0.35em 0.65em;
+      margin-right: 0.5rem;
+    }
+    
+    .method-get {
+      background-color: var(--accent-color);
+    }
+    
+    .method-put {
+      background-color: var(--warning-color);
+      color: #333;
+    }
+    
+    .method-post {
+      background-color: var(--success-color);
+    }
+    
+    .method-delete {
+      background-color: var(--danger-color);
+    }
+    
+    .test-stat {
+      text-align: center;
+      padding: 1rem;
+    }
+    
+    .test-number {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .test-label {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    
+    .divider {
+      height: 50px;
+      width: 2px;
+      background-color: #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">API Testing Reports</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-3">Restful Booker API Testing</h1>
+          <p class="lead mb-4">Automated testing results for Restful Booker API endpoints using Postman and Newman.</p>
+        </div>
+        <div class="col-lg-4">
+          <div class="d-flex justify-content-center">
+            <img src="https://www.postman.com/_ar-assets/images/homepage-products-tools.png" alt="API Testing Illustration" class="img-fluid" style="max-height: 200px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card mb-4">
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-3 test-stat">
+                  <div class="test-number text-primary">40+</div>
+                  <div class="test-label">Test Cases</div>
+                </div>
+                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                  <div class="divider d-none d-md-block"></div>
+                </div>
+                <div class="col-md-3 test-stat">
+                  <div class="test-number text-success">2</div>
+                  <div class="test-label">API Endpoints</div>
+                </div>
+                <div class="col-md-1 d-flex justify-content-center align-items-center">
+                  <div class="divider d-none d-md-block"></div>
+                </div>
+                <div class="col-md-3 test-stat">
+                  <div class="test-number text-info">100%</div>
+                  <div class="test-label">Coverage</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reports Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">Testing Reports</h2>
+      
+      <div class="row g-4">
+        <!-- GET Booking Report Card -->
+        <div class="col-lg-6">
+          <div class="card report-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <span>
+                <span class="badge method-badge method-get">GET</span>
+                Booking Tests
+              </span>
+              <span class="badge bg-success">5 Test Cases++</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Get Booking Tests Sample</h5>
+              <p class="card-text">This report contains the results of testing the GET /booking/:id endpoint of the Restful Booker API. Tests include retrieving booking details with valid and invalid IDs.</p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">✅ TC18: GET booking with valid ID</li>
+                <li class="list-group-item">✅ TC19: GET booking with valid ID but not in database</li>
+                <li class="list-group-item">✅ TC20: GET booking with empty string ID</li>
+                <li class="list-group-item">✅ TC21: GET booking with ID as letter</li>
+                <li class="list-group-item">✅ TC22: GET booking with ID as symbol</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a href="reports/published/get-booking-report.html" class="btn btn-primary w-100">View Full Report</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- PUT Booking Report Card -->
+        <div class="col-lg-6">
+          <div class="card report-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <span>
+                <span class="badge method-badge method-put">PUT</span>
+                Update Booking Tests
+              </span>
+              <span class="badge bg-success">20 Test Cases</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Update Booking Tests Sample</h5>
+              <p class="card-text">This report contains the results of testing the PUT /booking/:id endpoint of the Restful Booker API. Tests include authorization, data validation, and error handling.</p>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item">✅ TC1: Update without authorization</li>
+                <li class="list-group-item">✅ TC4: Update with valid data</li>
+                <li class="list-group-item">✅ TC5-TC12: Field validation tests</li>
+                <li class="list-group-item">✅ TC13-TC19: Data type validation tests</li>
+                <li class="list-group-item">✅ TC20: Date validation test</li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <a href="reports/published/update-booking-report.html" class="btn btn-primary w-100">View Full Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Testing Features</h2>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center">
+            <div class="feature-icon">
+              <i class="bi bi-check-circle"></i>
+            </div>
+            <h5 class="feature-title">Automated Testing</h5>
+            <p class="feature-description">All tests are automated using Postman and Newman, allowing for quick and consistent test execution.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="text-center">
+            <div class="feature-icon">
+              <i class="bi bi-file-earmark-code"></i>
+            </div>
+            <h5 class="feature-title">Detailed Reports</h5>
+            <p class="feature-description">HTML reports provide detailed information about test results, including request/response data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Documentation Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5">API Documentation</h2>
+      
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="card">
+            <div class="card-body p-4">
+              <h5>Restful Booker API</h5>
+              <p>The Restful Booker API is a free, open-source API for testing and education purposes. It simulates a hotel booking system with endpoints for creating, reading, updating, and deleting bookings.</p>
+              
+              <h6 class="mt-4">Base URL</h6>
+              <pre class="bg-dark text-light p-3 rounded">https://restful-booker.herokuapp.com</pre>
+              
+              <h6 class="mt-4">Tested Endpoints</h6>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="badge method-badge method-get">GET</span></td>
+                    <td>/booking/:id</td>
+                    <td>Retrieves the details of a specific booking</td>
+                  </tr>
+                  <tr>
+                    <td><span class="badge method-badge method-put">PUT</span></td>
+                    <td>/booking/:id</td>
+                    <td>Updates the details of a specific booking</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <div class="d-flex justify-content-center mt-4">
+                <a href="https://restful-booker.herokuapp.com/apidoc/index.html" target="_blank" class="btn btn-outline-primary">Our API Documentation</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Restful Booker API Testing</h5>
+          <p>A comprehensive testing suite for the Restful Booker API, created as part of a software testing course project.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <p>© 2025 API Testing Project</p>
+          <p>Bandung State Polytechnic</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
