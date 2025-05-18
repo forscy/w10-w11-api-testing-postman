@@ -1,0 +1,500 @@
+{
+	"id": "d2fa9ff7-da84-4c92-bc70-aa3b8cbd2a93",
+	"name": "Pengujian API Restful Booker",
+	"timestamp": "2025-05-18T15:51:27.530Z",
+	"collection_id": "26572425-342e0e83-d97b-405d-94e8-47a50e868605",
+	"folder_id": 0,
+	"environment_id": "26572425-6ced35d7-8ca0-4471-bc7a-5ad728fb0c80",
+	"totalPass": 13,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-18T15:51:17.694Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "ee5c7598-95f2-4f8a-93b9-cdafbaeef36b",
+			"name": "Autentikasi - Dapatkan Token",
+			"url": "https://restful-booker.herokuapp.com/auth",
+			"time": 2319,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2319
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a302f41f-50bb-4cab-be45-6f1e26308879",
+			"name": "C-001: Pembuatan booking dengan Content-Type valid",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 520,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"C-001: Status code adalah 200": true,
+				"C-001: Respons memiliki booking ID dan detail": true,
+				"C-001: Detail booking sudah benar": true
+			},
+			"testPassFailCounts": {
+				"C-001: Status code adalah 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"C-001: Respons memiliki booking ID dan detail": {
+					"pass": 1,
+					"fail": 0
+				},
+				"C-001: Detail booking sudah benar": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				520
+			],
+			"allTests": [
+				{
+					"C-001: Status code adalah 200": true,
+					"C-001: Respons memiliki booking ID dan detail": true,
+					"C-001: Detail booking sudah benar": true
+				}
+			]
+		},
+		{
+			"id": "7dee5e23-774f-40c1-832a-26d84bb18d2b",
+			"name": "C-002: Pembuatan booking dengan Accept header valid",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 503,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"C-002: Status code adalah 200": true,
+				"C-002: Respons memiliki booking ID dan detail": true
+			},
+			"testPassFailCounts": {
+				"C-002: Status code adalah 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"C-002: Respons memiliki booking ID dan detail": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				503
+			],
+			"allTests": [
+				{
+					"C-002: Status code adalah 200": true,
+					"C-002: Respons memiliki booking ID dan detail": true
+				}
+			]
+		},
+		{
+			"id": "49886cdf-594b-4cd4-9082-6a01ec408a5d",
+			"name": "C-003: Pembuatan booking dengan Content-Type tidak valid",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 294,
+			"responseCode": {
+				"code": 500,
+				"name": "Internal Server Error"
+			},
+			"tests": {
+				"C-003: Status code menunjukkan error untuk Content-Type tidak valid": true
+			},
+			"testPassFailCounts": {
+				"C-003: Status code menunjukkan error untuk Content-Type tidak valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				294
+			],
+			"allTests": [
+				{
+					"C-003: Status code menunjukkan error untuk Content-Type tidak valid": true
+				}
+			]
+		},
+		{
+			"id": "b40aa2d7-b23a-40fa-9314-68e313a66bd7",
+			"name": "C-006: Pembuatan booking dengan nama depan kosong",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 298,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"C-006: Nama depan kosong seharusnya menyebabkan error": true
+			},
+			"testPassFailCounts": {
+				"C-006: Nama depan kosong seharusnya menyebabkan error": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				298
+			],
+			"allTests": [
+				{
+					"C-006: Nama depan kosong seharusnya menyebabkan error": true
+				}
+			]
+		},
+		{
+			"id": "3ba1ccd9-ee31-4f9f-b64c-326e54a04254",
+			"name": "C-011: Pembuatan booking dengan harga total negatif",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 310,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"C-011: Harga negatif seharusnya menyebabkan error": true
+			},
+			"testPassFailCounts": {
+				"C-011: Harga negatif seharusnya menyebabkan error": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				310
+			],
+			"allTests": [
+				{
+					"C-011: Harga negatif seharusnya menyebabkan error": true
+				}
+			]
+		},
+		{
+			"id": "253048de-f782-43da-848b-52f53a79ac57",
+			"name": "Buat Booking D-001",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 310,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				310
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8d504895-a2c0-46d7-ac2b-b4adcd9fb574",
+			"name": "D-001: Menghapus booking dengan autentikasi token valid",
+			"url": "https://restful-booker.herokuapp.com/booking/471",
+			"time": 320,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"D-001: Status code adalah 201": true,
+				"D-001: Response body kosong": false,
+				"D-001: Booking tidak lagi ada": true
+			},
+			"testPassFailCounts": {
+				"D-001: Status code adalah 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"D-001: Response body kosong": {
+					"pass": 0,
+					"fail": 1
+				},
+				"D-001: Booking tidak lagi ada": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				320
+			],
+			"allTests": [
+				{
+					"D-001: Status code adalah 201": true,
+					"D-001: Response body kosong": false,
+					"D-001: Booking tidak lagi ada": true
+				}
+			]
+		},
+		{
+			"id": "3c49304a-cc8c-4939-90bc-b9941c40cddb",
+			"name": "Buat Booking D-002",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 312,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				312
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f75c9829-7e08-4195-a9bb-c95219ad5c9c",
+			"name": "D-002: Menghapus booking dengan autentikasi Basic Auth",
+			"url": "https://restful-booker.herokuapp.com/booking/493",
+			"time": 415,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"D-002: Status code adalah 201": true,
+				"D-002: Response body kosong": false
+			},
+			"testPassFailCounts": {
+				"D-002: Status code adalah 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"D-002: Response body kosong": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				415
+			],
+			"allTests": [
+				{
+					"D-002: Status code adalah 201": true,
+					"D-002: Response body kosong": false
+				}
+			]
+		},
+		{
+			"id": "6e6e6420-fa55-46f9-87c8-5e7f6c3dd2e1",
+			"name": "Buat Booking D-003",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 343,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				343
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "95672ba4-670e-4663-8e8f-e62529927bae",
+			"name": "D-003: Menghapus booking dengan token tidak valid",
+			"url": "https://restful-booker.herokuapp.com/booking/503",
+			"time": 310,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"D-003: Status code adalah 403 untuk token tidak valid": true
+			},
+			"testPassFailCounts": {
+				"D-003: Status code adalah 403 untuk token tidak valid": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				310
+			],
+			"allTests": [
+				{
+					"D-003: Status code adalah 403 untuk token tidak valid": true
+				}
+			]
+		},
+		{
+			"id": "77b3ea1e-8dce-45b5-aec3-52f3f3d778d6",
+			"name": "Buat Booking D-004",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 303,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				303
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3817eed1-c66e-4543-8319-b36a299c3d9a",
+			"name": "D-004: Menghapus booking tanpa menyertakan autentikasi",
+			"url": "https://restful-booker.herokuapp.com/booking/510",
+			"time": 307,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"D-004: Status code adalah 403 untuk autentikasi yang tidak disertakan": true
+			},
+			"testPassFailCounts": {
+				"D-004: Status code adalah 403 untuk autentikasi yang tidak disertakan": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				307
+			],
+			"allTests": [
+				{
+					"D-004: Status code adalah 403 untuk autentikasi yang tidak disertakan": true
+				}
+			]
+		},
+		{
+			"id": "1c1e36f6-14f5-45f2-88a9-5d496a6e2f6d",
+			"name": "Buat Booking D-005",
+			"url": "https://restful-booker.herokuapp.com/booking",
+			"time": 356,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				356
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "32682c48-7c7d-48cb-b534-a1732a73d54e",
+			"name": "D-006: Menghapus booking dengan ID yang tidak tersedia",
+			"url": "https://restful-booker.herokuapp.com/booking/9999",
+			"time": 305,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"D-006: Status code adalah 404 untuk booking yang tidak ada": false
+			},
+			"testPassFailCounts": {
+				"D-006: Status code adalah 404 untuk booking yang tidak ada": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				305
+			],
+			"allTests": [
+				{
+					"D-006: Status code adalah 404 untuk booking yang tidak ada": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 7525,
+	"collection": {
+		"requests": [
+			{
+				"id": "ee5c7598-95f2-4f8a-93b9-cdafbaeef36b",
+				"method": "POST"
+			},
+			{
+				"id": "a302f41f-50bb-4cab-be45-6f1e26308879",
+				"method": "POST"
+			},
+			{
+				"id": "7dee5e23-774f-40c1-832a-26d84bb18d2b",
+				"method": "POST"
+			},
+			{
+				"id": "49886cdf-594b-4cd4-9082-6a01ec408a5d",
+				"method": "POST"
+			},
+			{
+				"id": "b40aa2d7-b23a-40fa-9314-68e313a66bd7",
+				"method": "POST"
+			},
+			{
+				"id": "3ba1ccd9-ee31-4f9f-b64c-326e54a04254",
+				"method": "POST"
+			},
+			{
+				"id": "253048de-f782-43da-848b-52f53a79ac57",
+				"method": "POST"
+			},
+			{
+				"id": "8d504895-a2c0-46d7-ac2b-b4adcd9fb574",
+				"method": "DELETE"
+			},
+			{
+				"id": "3c49304a-cc8c-4939-90bc-b9941c40cddb",
+				"method": "POST"
+			},
+			{
+				"id": "f75c9829-7e08-4195-a9bb-c95219ad5c9c",
+				"method": "DELETE"
+			},
+			{
+				"id": "6e6e6420-fa55-46f9-87c8-5e7f6c3dd2e1",
+				"method": "POST"
+			},
+			{
+				"id": "95672ba4-670e-4663-8e8f-e62529927bae",
+				"method": "DELETE"
+			},
+			{
+				"id": "77b3ea1e-8dce-45b5-aec3-52f3f3d778d6",
+				"method": "POST"
+			},
+			{
+				"id": "3817eed1-c66e-4543-8319-b36a299c3d9a",
+				"method": "DELETE"
+			},
+			{
+				"id": "1c1e36f6-14f5-45f2-88a9-5d496a6e2f6d",
+				"method": "POST"
+			},
+			{
+				"id": "32682c48-7c7d-48cb-b534-a1732a73d54e",
+				"method": "DELETE"
+			}
+		]
+	}
+}
