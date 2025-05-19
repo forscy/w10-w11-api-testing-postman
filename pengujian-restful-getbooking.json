@@ -113,19 +113,19 @@
 					"response": []
 				},
 				{
-					"name": "TC18: GET booking dengan Id valid",
+					"name": "TC21: GET booking dengan Id valid",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC18: Verifikasi status code",
-									"pm.test(\"TC18: Status code adalah 200 OK\", () => {",
+									"// TC21: Verifikasi status code",
+									"pm.test(\"TC21: Status code adalah 200 OK\", () => {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
 									"// Verifikasi struktur response",
-									"pm.test(\"TC18: Response memiliki struktur yang benar\", () => {",
+									"pm.test(\"TC21: Response memiliki struktur yang benar\", () => {",
 									"    const responseJson = pm.response.json();",
 									"    ",
 									"    // Verifikasi bahwa semua field yang diharapkan ada dalam response",
@@ -141,7 +141,7 @@
 									"// Verifikasi data booking sesuai dengan yang diharapkan",
 									"const responseJson = pm.response.json();",
 									"if (responseJson.firstname === \"GetTest\") {",
-									"    pm.test(\"TC18: Data booking sesuai dengan yang dibuat\", () => {",
+									"    pm.test(\"TC21: Data booking sesuai dengan yang dibuat\", () => {",
 									"        pm.expect(responseJson.firstname).to.equal(\"GetTest\");",
 									"        pm.expect(responseJson.lastname).to.equal(\"User\");",
 									"    });",
@@ -149,7 +149,8 @@
 									"    console.log(\"Booking yang diambil adalah booking lain dengan ID valid\");",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -171,14 +172,14 @@
 					"response": []
 				},
 				{
-					"name": "TC18 (Alt): GET booking dengan Id = 1",
+					"name": "TC21 (Alt): GET booking dengan Id = 1",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC18 (Alt): Verifikasi status code",
-									"pm.test(\"TC18 (Alt): Status code adalah 200 OK atau 404 jika ID tidak ditemukan\", () => {",
+									"// TC21 (Alt): Verifikasi status code",
+									"pm.test(\"TC21 (Alt): Status code adalah 200 OK atau 404 jika ID tidak ditemukan\", () => {",
 									"    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
 									"    ",
 									"    if (pm.response.code === 200) {",
@@ -196,7 +197,8 @@
 									"    }",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -218,25 +220,26 @@
 					"response": []
 				},
 				{
-					"name": "TC19: GET booking dengan Id valid tapi tidak ada dalam database",
+					"name": "TC22: GET booking dengan Id valid tapi tidak ada dalam database",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC19: Verifikasi status code",
-									"pm.test(\"TC19: Status code adalah 404 Not Found\", () => {",
+									"// TC22: Verifikasi status code",
+									"pm.test(\"TC22: Status code adalah 404 Not Found\", () => {",
 									"    pm.response.to.have.status(404);",
 									"});",
 									"",
 									"// Verifikasi pesan error",
-									"pm.test(\"TC19: Response menunjukkan Not Found\", () => {",
+									"pm.test(\"TC22: Response menunjukkan Not Found\", () => {",
 									"    // Restful Booker API mungkin tidak selalu mengembalikan pesan error yang konsisten",
 									"    // Kita hanya memeriksa status code 404",
 									"    pm.response.to.have.status(404);",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -258,14 +261,14 @@
 					"response": []
 				},
 				{
-					"name": "TC20: GET booking dengan Id string kosong",
+					"name": "TC23: GET booking dengan Id string kosong",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC20: Verifikasi request dengan id string kosong",
-									"pm.test(\"TC20: Response menunjukkan error untuk ID string kosong\", () => {",
+									"// TC23: Verifikasi request dengan id string kosong",
+									"pm.test(\"TC23: Response menunjukkan error untuk ID string kosong\", () => {",
 									"    // API restful-booker mungkin memberikan respons yang berbeda untuk ID kosong",
 									"    // 400 Bad Request",
 									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
@@ -294,14 +297,14 @@
 					"response": []
 				},
 				{
-					"name": "TC21: GET booking dengan Id berupa huruf",
+					"name": "TC24: GET booking dengan Id berupa huruf",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC21: Verifikasi request dengan id berupa huruf",
-									"pm.test(\"TC21: Response menunjukkan error untuk ID berupa huruf\", () => {",
+									"// TC24: Verifikasi request dengan id berupa huruf",
+									"pm.test(\"TC24: Response menunjukkan error untuk ID berupa huruf\", () => {",
 									"    // Berdasarkan API contract, ini seharusnya 400 Bad Request",
 									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
 									"});"
@@ -329,14 +332,14 @@
 					"response": []
 				},
 				{
-					"name": "TC22: GET booking dengan Id berupa simbol",
+					"name": "TC25: GET booking dengan Id berupa simbol",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"// TC22: Verifikasi request dengan id berupa simbol",
-									"pm.test(\"TC22: Response menunjukkan error untuk ID berupa simbol\", () => {",
+									"// TC25: Verifikasi request dengan id berupa simbol",
+									"pm.test(\"TC25: Response menunjukkan error untuk ID berupa simbol\", () => {",
 									"    // Berdasarkan API contract, ini seharusnya 400 Bad Request",
 									"    pm.expect(pm.response.code).to.be.oneOf([400]);",
 									"});"
